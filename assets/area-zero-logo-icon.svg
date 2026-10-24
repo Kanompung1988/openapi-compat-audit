@@ -1,0 +1,88 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer rotating ring -->
+  <circle cx="100" cy="100" r="95" stroke="url(#gradient1)" stroke-width="2" opacity="0.3">
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      from="0 100 100"
+      to="360 100 100"
+      dur="8s"
+      repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Middle pulsing ring -->
+  <circle cx="100" cy="100" r="80" stroke="url(#gradient2)" stroke-width="3" opacity="0.5">
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="78;82;78" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Inner core with gradient -->
+  <circle cx="100" cy="100" r="65" fill="url(#coreGradient)">
+    <animate attributeName="r" values="65;68;65" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Neural network nodes - center -->
+  <circle cx="100" cy="100" r="8" fill="white">
+    <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Neural network nodes - corners -->
+  <circle cx="70" cy="70" r="6" fill="white" opacity="0.9"/>
+  <circle cx="130" cy="70" r="6" fill="white" opacity="0.9"/>
+  <circle cx="70" cy="130" r="6" fill="white" opacity="0.9"/>
+  <circle cx="130" cy="130" r="6" fill="white" opacity="0.9"/>
+  
+  <!-- Connecting lines with animation -->
+  <g stroke="white" stroke-width="2" opacity="0.6">
+    <line x1="100" y1="100" x2="70" y2="70">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" begin="0s" repeatCount="indefinite"/>
+    </line>
+    <line x1="100" y1="100" x2="130" y2="70">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="100" y1="100" x2="70" y2="130">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="100" y1="100" x2="130" y2="130">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Glow effect -->
+  <circle cx="100" cy="100" r="70" fill="url(#glowGradient)" opacity="0.3">
+    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00FFA3;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFA3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00D9FF;stop-opacity:1" />
+    </linearGradient>
+    
+    <radialGradient id="coreGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00D9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00FFA3;stop-opacity:1" />
+    </radialGradient>
+    
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00D9FF;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#00FFA3;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
